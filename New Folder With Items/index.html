@@ -1,0 +1,29 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vue</title>
+  <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+
+
+  <div id="app">
+    <h1>{{ message }}</h1>
+    <button @click="toggleDetails">Toggle Details</button>
+    <button @click="toggleEdit">Toggle Edit</button>
+  
+    <div v-for="contact in contacts" :key="contact.email">
+      <div v-show="showDetails">
+        <p>{{ contact.name }} - {{ contact.email }}</p>
+        <p>Age: {{ contact.age }}</p>
+        <a :href="contact.link" target="_blank">LinkedIn</a>
+      </div>
+      <div v-show="edit">
+        <input v-model="contact.email" type="text">
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
